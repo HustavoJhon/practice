@@ -10,7 +10,7 @@ class ContadorPage extends StatefulWidget {
 class _ContadorPageState extends State<ContadorPage> {
   final _estiloTexto = const TextStyle(fontSize: 25);
 
-  final int _contador = 10;
+  int _contador = 10;
 
   @override
   Widget build(BuildContext context) {
@@ -40,29 +40,29 @@ class _ContadorPageState extends State<ContadorPage> {
   }
 
   Widget _crearBotones() {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
-        SizedBox(
-          width: 30,
-        ),
+        SizedBox(width: 30),
         FloatingActionButton(
-          onPressed: null,
-          child: Icon(Icons.exposure_zero),
-        ),
+            child: Icon(Icons.exposure_zero), onPressed: _reset),
         Expanded(child: SizedBox()),
-        FloatingActionButton(
-          onPressed: null,
-          child: Icon(Icons.remove),
-        ),
-        SizedBox(
-          width: 5.0,
-        ),
-        FloatingActionButton(
-          onPressed: null,
-          child: Icon(Icons.add_alarm),
-        ),
+        FloatingActionButton(child: Icon(Icons.remove), onPressed: _sustraer),
+        SizedBox(width: 5.0),
+        FloatingActionButton(child: Icon(Icons.add), onPressed: _agregar),
       ],
     );
+  }
+
+  void _agregar() {
+    setState(() => _contador++);
+  }
+
+  void _sustraer() {
+    setState(() => _contador--);
+  }
+
+  void _reset() {
+    setState(() => _contador = 0);
   }
 }
