@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  final estiloTexto = new TextStyle(fontSize: 25);
+  final estiloTexto = const TextStyle(fontSize: 25);
 
   int contador = 10;
+
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Titulo'),
+        title: const Text('Titulo'),
         centerTitle: true,
       ),
       body: Center(
@@ -28,7 +30,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () {
           print('Hola Mundo');
           contador = contador + 1;
